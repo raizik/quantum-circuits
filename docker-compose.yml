@@ -1,0 +1,15 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: quantum-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - task_data:/app/data
+    restart: unless-stopped
+
+volumes:
+  task_data:
+    driver: local
